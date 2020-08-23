@@ -25,16 +25,47 @@ function getSymbol() {
 //click button to start the password generating
 var generatePassword = function() {
   alert("Welcome to the Password Generator!");
-  //length = prompt("What do you want the length of the password to be? Please enter 1 for at least 8 characters, 2 for no more than 128 characters, and 3 for both options.");
   
-  var upper = getUpperCase();
-  var lower = getLowerCase();
-  var number = getNumber();
-  symbol = getSymbol();
+  //prompt the length of the password
+  length = prompt("What do you want the length of the password to be? Please enter 1 for at least 8 characters, 2 for no more than 128 characters, and 3 for both options.");
+  
+  //prompt if user wants UPPERCASE
+  var confirmUpperCase = confirm("Do you want you password to include uppercase characters?");
+  
+    //if yes (true), run getUpperCase() function
+    if (confirmUpperCase) {
+      var upper = getUpperCase();
+      console.log(upper);
+    }
 
+  //prompt if the users wants LOWERCASE
+  var confirmLowerCase = confirm("Do you want the password to include LOWERCASE characters?");
+    
+    //if yes (true), run getLowerCase() function
+    if (confirmLowerCase) {
+      var lower = getLowerCase();
+      console.log(lower);
+    }
+    
+  //prompt if the user wants NUMBERS
+  var confirmNumber = confirm("Do you want the password to include NUMBERS?");
+  
+    //if yes (true), run getNumber() function
+    if (confirmNumber) {
+      var number = getNumber();
+      console.log(number);
+    }
 
-  console.log(upper, lower, number, symbol);
-}
+  //prompt if the user wants SYMBOLS
+  var confirmSymbol = confirm("Do you want the password to include SYMBOLS");
+
+    //if yes (true), run getSymbol() function
+    if (confirmSymbol) {
+        symbol = getSymbol();
+        console.log(symbol);
+    }
+
+} //end of generatePassword function
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
