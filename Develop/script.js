@@ -27,8 +27,11 @@ var generatePassword = function() {
   alert("Welcome to the Password Generator!");
   
   //prompt the length of the password
-  length = prompt("What do you want the length of the password to be? Please enter 1 for at least 8 characters, 2 for no more than 128 characters, and 3 for both options.");
-  
+  var userLength = prompt("Enter the amount of characters you want your password to be. It must be at least 8 characters, but no longer than 128 characters.");
+  var passwordLength = parseInt(userLength);
+
+  console.log(passwordLength);
+
   //prompt if user wants UPPERCASE
   var confirmUpperCase = confirm("Do you want you password to include uppercase characters?");
   
@@ -57,7 +60,7 @@ var generatePassword = function() {
     }
 
   //prompt if the user wants SYMBOLS
-  var confirmSymbol = confirm("Do you want the password to include SYMBOLS");
+  var confirmSymbol = confirm("Do you want the password to include SYMBOLS?");
 
     //if yes (true), run getSymbol() function
     if (confirmSymbol) {
