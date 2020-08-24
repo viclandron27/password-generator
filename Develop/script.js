@@ -1,19 +1,22 @@
 // Assignment code here
-var length = "";
+var password = "";
 
 //generate random UPPERCASE
 function getUpperCase() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+  var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  return upper[Math.floor(Math.random() * upper.length)];
 }
 
 //generate random LOWERCASE
 function getLowerCase() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+  var lower = "abcdefghijklmnopqrstuvwxyz";
+  return lower[Math.floor(Math.random() * lower.length)];
 }
 
 //generate random NUMBER
 function getNumber() {
-  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+  var number = "1234567890";
+  return number[Math.floor(Math.random() * number.length)];
 }
 
 //generate random SYMBOL
@@ -36,39 +39,50 @@ var generatePassword = function() {
   var confirmUpperCase = confirm("Do you want you password to include uppercase characters?");
   
     //if yes (true), run getUpperCase() function
-    if (confirmUpperCase) {
-      var upper = getUpperCase();
-      console.log(upper);
-    }
+    
 
   //prompt if the users wants LOWERCASE
   var confirmLowerCase = confirm("Do you want the password to include LOWERCASE characters?");
     
     //if yes (true), run getLowerCase() function
-    if (confirmLowerCase) {
-      var lower = getLowerCase();
-      console.log(lower);
-    }
+    
     
   //prompt if the user wants NUMBERS
   var confirmNumber = confirm("Do you want the password to include NUMBERS?");
   
     //if yes (true), run getNumber() function
-    if (confirmNumber) {
-      var number = getNumber();
-      console.log(number);
-    }
+  
 
   //prompt if the user wants SYMBOLS
   var confirmSymbol = confirm("Do you want the password to include SYMBOLS?");
 
     //if yes (true), run getSymbol() function
-    if (confirmSymbol) {
-        symbol = getSymbol();
-        console.log(symbol);
+   
+
+    for (i = 0; i < passwordLength; i++) {
+      if (confirmLowerCase) {
+        var randomLower = getLowerCase();
+      }
+      if (confirmUpperCase) {
+        var randomUpper = getUpperCase();
+        //console.log(randomUpper);
+      }
+      if (confirmNumber) {
+        var randomNumber = getNumber();
+        //console.log(randomNumber);
+      }
+      if (confirmSymbol) {
+        var randomSymbol = getSymbol();
+        //console.log(randomSymbol);
+      }
+
+      var randomPassword = randomUpper.concat(randomLower, randomNumber, randomSymbol);
+      return randomPassword;
+    
     }
 
-} //end of generatePassword function
+    alert("Your randomly generated password is " + password);
+}; //end of generatePassword function
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
